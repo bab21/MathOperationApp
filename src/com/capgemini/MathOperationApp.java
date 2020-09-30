@@ -3,6 +3,10 @@ package com.capgemini;
 @FunctionalInterface
 interface MathFunction{
 	int calculate(int a,int b);
+	
+	static void printResult(int a,int b,String function,MathFunction fobj) {
+		System.out.println("Result of "+function+" is "+fobj.calculate(a,b));
+	}
 }
 
 public class MathOperationApp {
@@ -13,8 +17,9 @@ public class MathOperationApp {
 	   int a,b;
 	   a=30;
 	   b=10;
-	   System.out.println("Addition is : "+add.calculate(a, b));
-	   System.out.println("Subtraction is : "+subtract.calculate(a, b));
-	   System.out.println("Division is : "+division.calculate(a, b));
+	   MathFunction.printResult(a, b,"Addition", add);
+	   MathFunction.printResult(a, b,"Subtraction", subtract);
+	   MathFunction.printResult(a, b,"Division", division);
+	   
    }
 }
